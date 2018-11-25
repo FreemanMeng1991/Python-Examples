@@ -10,6 +10,7 @@ print(root_path)
 filename     = []
 indent_level = []
 
+#自根目录遍历所有文件夹及其子文件夹以及其中包含的文件
 for root,dirs,files in os.walk(root_path):
     current_dir = root.split("\\")
     level = len(current_dir)-offset
