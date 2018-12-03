@@ -38,19 +38,28 @@ msg['To'] = to_addr
 则这些信息无法通过SMTP协议发给邮件传输代理(MTA)，
 而是包含在发给MTA的文本中。注意：这里使用了糖衣语法'''
 
-with open('test.jpg', 'rb') as f:
-    # 设置附件的MIME和文件名，这里是png类型:
-    mime = MIMEBase('application', 'octect-string', filename='test.jpg')
-    # 加上必要的头信息:
-    mime.add_header('Content-Disposition', 'attachment', filename='test.jpg')
-    mime.add_header('Content-ID', '<0>')
-    mime.add_header('X-Attachment-Id', '0')
-    # 把附件的内容读进来:
-    mime.set_payload(f.read())
-    # 用Base64编码对附件内容进行编码:
-    encoders.encode_base64(mime)
-    # 添加到MIMEMultipart:
-    msg.attach(mime)
+def add_attachment(file):
+    with open(file, 'rb') as f:
+        # 设置附件的MIME类型和文件名，application/octect-string:
+        mime = MIMEBase('application', 'octect-string', filename=file)
+        # 加上必要的头信息:
+        mime.add_header('Content-Disposition', 'attachment', filename=file)
+        mime.add_header('Content-ID', '<0>')
+        mime.add_header('X-Attachment-Id', '0')
+        # 把附件的内容读进来:
+        mime.set_payload(f.read())
+        # 用Base64编码对附件内容进行编码:
+        encoders.encode_base64(mime)
+        # 添加到MIMEMultipart:
+        msg.attach(mime)
+
+#批量添加附件
+files = ['att1.jpg','att2.jpg']
+for x in files:
+    add_attachment(x)
+
+
+
 
 server = smtplib.SMTP(smtp_server, 25) #SMTP协议默认端口是25
 server.login(from_addr, password)
