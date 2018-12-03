@@ -7,9 +7,6 @@ class Student:
 		return((self.name,self.grade,self.age))
 
 
-
-
-
 s = [("Tim","A",10),\
 ("King","A",12),\
 ("LiTao","B",17),\
