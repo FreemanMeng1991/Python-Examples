@@ -232,12 +232,9 @@ if __name__=='__main__':
             print("Converting: "+doc_name+" ...")
             pdf_name = doc_name.split(".")[0]+".pdf"
             doc_to_pdf(doc_path,options["src_folder"]+"\\"+pdf_name)
-
     
     if(options["merge"]=='y' and options["src_type"]=="folder"):
         if(options["both_sides"]=='y'):
-            print("y")
             merge_pdf_file(options["src_folder"],both_sides=1)
         else:
-            print("n")
             merge_pdf_file(options["src_folder"])
