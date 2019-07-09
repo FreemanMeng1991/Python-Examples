@@ -104,7 +104,6 @@ def caculate_and_save(scores,file_name,work_book=Workbook):
 			new_sheet.write(start_row,index+1,value)
 		start_row+=1
 		
-
 if __name__=='__main__':
 	options = get_options()
 	#遍历并过滤文件夹中的txt成绩文件，并将其绝对路径添加在列表中
