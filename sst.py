@@ -103,6 +103,7 @@ def caculate_and_save(scores,file_name,work_book=Workbook):
 		for index,value in enumerate(score):
 			new_sheet.write(start_row,index+1,value)
 		start_row+=1
+
 		
 if __name__=='__main__':
 	options = get_options()
