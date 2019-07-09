@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 #该程序统计一个文件夹下所有的学生成绩文件
 #文件格式为：一个班一个TXT文件，每个学生成绩占一行，
-#           每题的分数用空格分隔。
+#           每题的分数用空格分隔
 import sys
 import xlrd
 import xlwt
@@ -103,8 +103,9 @@ def caculate_and_save(scores,file_name,work_book=Workbook):
 		for index,value in enumerate(score):
 			new_sheet.write(start_row,index+1,value)
 		start_row+=1
-
 		
+
+
 if __name__=='__main__':
 	options = get_options()
 	#遍历并过滤文件夹中的txt成绩文件，并将其绝对路径添加在列表中
